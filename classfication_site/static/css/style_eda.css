@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.nav-item {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.nav-item:hover {
+    background-color: #555;
+}
+
+.container{
+    height: 91.5vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #333;
+}
+
+.container1{
+    background-color: #555;
+    width: 40vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    margin: auto;
+}
+
+.container2{
+    background-color: #333;
+    width: 55vw;
+    height: 91.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.word-cloud{
+    height: 45vh;
+    width: 55vw;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.frequency-count{
+    height: 46.5vh;
+    width: 55vw;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.word-cloud-spam{
+    height: 45vh;
+    width: 400px;
+    background-color: #555;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.word-cloud-ham{
+    height: 45vh;
+    width: 400px;
+    background-color: #555;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spam{
+    height: 45vh;
+    width: 400px;
+    background-color: #555;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ham{
+    height: 45vh;
+    width: 400px;
+    background-color: #555;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    border-radius: 60px;
+}

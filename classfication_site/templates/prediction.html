@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spam Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prediction_style.css') }}" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#" class="nav-item">PREDICTION</a>
+      <a href="{{ url_for('eda') }}" class="nav-item">EDA</a>
+    </div>
+
+    <div class="container">
+      <div class="left-section">
+        <textarea id="text-box" class="text-box" placeholder="Paste your email"></textarea>
+      </div>
+
+      <div class="right-section">
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" id="file" style="display: none;" onchange="submitFilePrediction()" />
+          <button type="button" class="upload-btn" onclick="document.getElementById('file').click()">Upload File</button>
+        </form>
+        <button type="button" class="submit-btn" onclick="submitPrediction()">Submit</button>
+      </div>
+    </div>
+
+    <div id="result" class="result">RESULT</div>
+
+    <script>
+      function submitPrediction() {
+        const textBox = document.getElementById('text-box').value
+        const formData = new FormData()
+        formData.append('text', textBox)
+      
+        fetch("{{ url_for('predict') }}", {
+          method: 'POST',
+          body: formData
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            document.getElementById('result').innerText = result
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+            document.getElementById('result').innerText = 'Error in prediction'
+          })
+      }
+      
+      function submitFilePrediction() {
+        const fileInput = document.getElementById('file')
+        const file = fileInput.files[0]
+      
+        if (!file) {
+          document.getElementById('result').innerText = 'Please select a file.'
+          return
+        }
+      
+        const formData = new FormData()
+        formData.append('file', file)
+      
+        fetch("{{ url_for('upload_file') }}", {
+          method: 'POST',
+          body: formData
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            document.getElementById('result').innerText = result
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+            document.getElementById('result').innerText = 'Error in file prediction'
+          })
+      }
+    </script>
+  </body>
+</html>

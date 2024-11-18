@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Classification - EDA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_eda.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('prediction') }}" class="nav-item">PREDICTION</a>
+        <a href="#" class="nav-item">EDA</a>
+    </div>
+    <div class="container">
+        <div class="container1">
+            <div class="class-distribution">
+                <img src="{{ url_for('static', filename='images/class_distribution.png') }}" alt="class-distribution">
+            </div>
+        </div>
+        <div class="container2">
+            <div class="word-cloud">
+                <div class="word-cloud-spam">
+                    <img src="{{ url_for('static', filename='images/word_cloud_spam.png') }}" alt="word_cloud_spam" height="300px" width="380px">
+                </div>
+                <div class="word-cloud-ham">
+                    <img src="{{ url_for('static', filename='images/word_cloud_ham.png') }}" alt="word_cloud_ham" height="300px" width="380px">
+                </div>
+            </div>
+            <div class="frequency-count">
+                <div class="spam">
+                    <img src="{{ url_for('static', filename='images/top_10_spam.png') }}" alt="top_10_spam" height="300px" width="380px">
+                </div>
+                <div class="ham">
+                    <img src="{{ url_for('static', filename='images/top_10_ham.png') }}" alt="top_10_ham" height="300px" width="380px">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
